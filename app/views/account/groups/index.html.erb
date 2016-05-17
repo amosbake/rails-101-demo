@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <h2 class="text-center">我的讨论版</h2>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Post Count</th>
+              <th>Last Update</th>
+          </tr>
+      </thead>
+      
+      <tbody>
+          <% @groups.each do |group| %>
+            <tr>
+              <th>#</th>
+              <th><%= link_to(group.title,group_path(group))%></th>
+              <th><%= group.description%></th>
+              <th><%= group.posts.size%></th>
+              <th><%= group.updated_at.to_s(:long)%></th>
+            </tr>
+          <% end %>
+      </tbody>
+  </table>
+</div>
